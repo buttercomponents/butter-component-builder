@@ -6,9 +6,9 @@ let ListItem = (props) => (<li>
 
 let List = (props) =>
     <ul>
-        {props.items.map((it, k) => {
+        {props.items.length && props.items.map((it, k) => {
              let ItemComponent = props.itemComponent;
-             return <ItemComponent key={k}>{it}</ItemComponent>
+             return <ItemComponent key={k} {...it}></ItemComponent>
          })}
     </ul>;
 
