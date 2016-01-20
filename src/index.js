@@ -26,7 +26,9 @@ let ShowList = (props) => (
             <div className={style[`episode-list-${props.type}`]}>{props.name}</div>
         </div>
         <div className={style[`tabs-${props.type}`]}>
-            <ButterList {...props} />
+            <div style={{display: 'block', direction: 'ltr'}}>
+                <ButterList {...props} />
+            </div>
         </div>
     </div>
 );
@@ -80,10 +82,14 @@ export default class ShowInfo extends Component {
         let episodes = this.state.torrents[this.state.season];
         return (
             <div className={style.info}>
-                <SeasonList  className={style.seasons} torrents={this.state.torrents}/>
+                <SeasonList  className={style.seasons}
+                             torrents={this.state.torrents}
+                             onClick={(o, i) => {this.setState({season: i})}}
+                />
                 <div className={style.episodes}>
                 <EpisodeList className={style.episodesList}
-                                 episodes={episodes}/>
+                             episodes={episodes}
+                             onClick={(o) => {this.setState({episode: o.episode})}}/>
                     <div className={style['right-container']}>
                         <EpisodeInfo {...episodes[this.state.episode]}/>
                         <div className={style['play-now']}>

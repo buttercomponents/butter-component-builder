@@ -8,7 +8,12 @@ let List = (props) =>
     <ul>
         {props.items.length && props.items.map((it, k) => {
              let ItemComponent = props.itemComponent;
-             return <ItemComponent key={k} {...it}></ItemComponent>
+            return (
+                    <div  key={k} onClick={() => props.onClick?props.onClick(it, k):console.error('Unhandled click event', it)}>
+                    <ItemComponent {...it}
+                    />
+                    </div>
+            )
          })}
     </ul>;
 
