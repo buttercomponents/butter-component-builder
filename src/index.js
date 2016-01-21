@@ -66,7 +66,7 @@ export default class ShowInfo extends Component {
         let torrents = []
         props.episodes.map((value) => {
             let season = value.season - 1;
-            let episode = value.episode - 1;
+            let episode = value.episode;
             if (!torrents[season]) torrents[season] = [];
             torrents[season][episode] = value;
         });
