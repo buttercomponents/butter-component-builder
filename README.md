@@ -1,17 +1,33 @@
-react-hot-boilerplate
+butter-component-builder
 =====================
 
-The minimal dev environment to enable live-editing React components.
+The minimal dev environment to enable live-editing Butter React components.
 
 ### Usage
+in your component root tree:
 
+```sh
+npm install butter-component-builder
 ```
-npm install
+
+add this to your `package.json`:
+```json
+  "scripts": {
+    "start": "node node_modules/butter-component-builder/server.js",
+    "lint": "eslint src"
+  },
+```
+
+then run:
+```sh
 npm start
 open http://localhost:3000
 ```
 
-Now edit `src/App.js`.  
+your component entry point is `src/index.js`.
+you can put a json file in `test/data.json`, and your component will be
+mounted with the test data as props.
+
 Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
 
 ### Linting
