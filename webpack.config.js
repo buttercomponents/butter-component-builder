@@ -25,11 +25,14 @@ module.exports = {
                 path.join(__dirname, '../../test'),
                 path.join(__dirname, 'index.js')]
     }, {
-      test: /\.(css|styl)$/,
+      test: /\.(styl)$/,
       loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+    },{
+      test: /\.(css)$/,
+      loader: 'style-loader!css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
     }, {
-      test: /\.png$/,
-      loader: "url-loader?limit=100000"
-    }]
+        test: /\.(png|svg|woff2?|eot|ttf).*$/,
+        loader: "url-loader?limit=100000"
+        }]
   }
 };
