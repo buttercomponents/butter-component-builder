@@ -1,14 +1,14 @@
 {
-  "name": "butter-component-show-info",
+  "name": "butter-component-builder",
   "version": "0.0.1",
-  "description": "A Butter Component to show Seasons and Episode Lists, as well as Episode Info",
+  "description": "A base class to build Butter Components",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/buttercomponents/butter-component-show-info.git"
+    "url": "https://github.com/buttercomponents/butter-component-builder.git"
   },
   "keywords": [
     "react",
@@ -24,9 +24,9 @@
   "author": "Niv Sardi <x@btn.sh>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/buttercomponents/butter-component-show-info/issues"
+    "url": "https://github.com/buttercomponents/butter-component-builder/issues"
   },
-  "homepage": "https://github.com/buttercomponents/butter-component-show-info",
+  "homepage": "https://github.com/buttercomponents/butter-component-builder",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",
