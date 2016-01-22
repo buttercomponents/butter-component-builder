@@ -20,6 +20,7 @@ module.exports = {
   resolve:{
     modulesDirectory: path.join(process.cwd(), 'node_modules'),
     alias: {
+      node_modules: path.join(process.cwd(), 'node_modules'),
       btm_src: path.join (process.cwd(), 'src/index.js'),
       btm_test: path.join (process.cwd(), 'test/data.json')
     }

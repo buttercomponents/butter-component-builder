@@ -1,6 +1,6 @@
 {
   "name": "butter-component-builder",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "A base class to build Butter Components",
   "scripts": {
     "start": "node server.js",
@@ -34,7 +34,6 @@
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
-    "butter-component-loader": "*",
     "css-loader": "^0.23.1",
     "eslint-plugin-react": "^3.6.2",
     "extract-text-webpack-plugin": "^1.0.1",
