@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from '../../src';
+import Component from 'btm_src';
 
 let testData = {}
 try {
-    testData = require('json!../../test/data.json');
+    testData = require('json!btm_test');
 } catch (e){
     console.error ('could not load test data')
 }

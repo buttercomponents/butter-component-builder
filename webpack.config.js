@@ -17,13 +17,22 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
+  resolve:{
+    modulesDirectory: path.join(process.cwd(), 'node_modules'),
+    alias: {
+      btm_src: path.join (process.cwd(), 'src/index.js'),
+      btm_test: path.join (process.cwd(), 'test/data.json')
+    }
+  },
   module: {
     loaders: [{
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
-      include: [path.join(__dirname, '../../src'),
-                path.join(__dirname, '../../test'),
-                path.join(__dirname, 'index.js')]
+      include: [
+        path.join(process.cwd(), 'src'),
+        path.join(process.cwd(), 'test'),
+        path.join(__dirname, 'index.js')
+      ]
     }, {
       test: /\.(styl)$/,
       loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
