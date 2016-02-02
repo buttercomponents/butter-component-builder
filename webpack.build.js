@@ -31,7 +31,7 @@ module.exports = {
       loader: 'style-loader!css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
     }, {
       test: /\.(png|svg|woff2?|eot|ttf).*$/,
-      loader: "url-loader?limit=100000"
+      loader: 'url-loader?limit=100000'
     }]
   }
 };
