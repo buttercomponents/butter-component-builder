@@ -13,6 +13,7 @@ npm install butter-component-builder
 add this to your `package.json`:
 ```json
   "scripts": {
+    "build": "webpack --config node_modules/butter-component-builder/webpack.build.js --progress --profile --colors",
     "start": "node node_modules/butter-component-builder/server.js",
     "lint": "eslint src"
   },
