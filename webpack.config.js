@@ -27,8 +27,18 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
+      test: /\.jsx?$/,
+      loader: 'babel-loader',
+      query: {
+        plugins: [['react-transform', {
+          'transforms': [{
+            'transform': 'react-transform-hmr',
+            'imports': ['react'],
+            'locals': ['module']
+          }]
+        }]],
+        presets: ['es2015', 'stage-0', 'react']
+      },
       include: [
         path.join(process.cwd(), 'src'),
         path.join(process.cwd(), 'test'),

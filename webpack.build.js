@@ -14,7 +14,10 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['babel'],
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'stage-0', 'react']
+      },
       include: [
         path.join(process.env.PWD, './src'),
         path.join(process.env.PWD, './test'),
