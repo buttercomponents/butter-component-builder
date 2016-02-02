@@ -25,6 +25,11 @@ npm start
 open http://localhost:3000
 ```
 
+*WARNING* currently you need to manually install
+ `babel-plugin-react-transform` and `react-transform-hmr` to use the
+ live-reloader… i don't really understand why that is, if you have any idea
+ please PR !
+
 your component entry point is `src/index.js`.
 you can put a json file in `test/data.json`, and your component will be
 mounted with the test data as props.
