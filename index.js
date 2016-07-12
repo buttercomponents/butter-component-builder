@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import Component from 'btm_src';
 
 let testData = {}
+
 try {
     testData = require('json!btm_test');
 } catch (e){
@@ -15,4 +16,4 @@ window.i18n = {
     __: x => x
 }
 
-ReactDOM.render(<Component {...testData}/>, document.getElementById('root'));
+render(<Component {...testData}/>, document.getElementById('root'));
