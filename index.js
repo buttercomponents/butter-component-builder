@@ -1,6 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { I18nextProvider} from 'react-i18next';
+
 import Component from 'btm_src';
+import i18n from './i18n';
 
 let testData = {}
 
@@ -10,10 +13,4 @@ try {
     console.error ('could not load test data')
 }
 
-import fa from './node_modules/font-awesome/css/font-awesome.css';
-
-window.i18n = {
-    __: x => x
-}
-
-render(<Component {...testData}/>, document.getElementById('root'));
+render(<I18nextProvider i18n={ i18n }><Component {...testData}/></I18nextProvider>, document.getElementById('root'));
