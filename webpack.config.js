@@ -25,6 +25,9 @@ module.exports = {
       btm_test: path.join (process.cwd(), 'test/data.json')
     }
   },
+  stylus: {
+    import: path.join(__dirname, 'theme.styl'),
+  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
