@@ -6,6 +6,8 @@ let Test = ({t}) => (
         test
         <br/>
         {t('translated')}
+        <br/>
+        <button className="btn btn-primary">test bootstrap</button>
     </div>
 )
 

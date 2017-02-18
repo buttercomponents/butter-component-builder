@@ -4,7 +4,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
-  entry: './src/index.js',
+  entry: [
+    'bootstrap-loader',
+    './src/index.js'
+  ],
   output: {
     path: 'dist',
     filename: 'bundle.js',
@@ -12,6 +15,9 @@ module.exports = {
     libraryTarget: 'umd'
   },
   externals: ['react', 'react-dom'],
+  stylus: {
+    import: path.join(__dirname, 'theme.styl'),
+  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -32,6 +38,9 @@ module.exports = {
     }, {
       test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
       loader: 'url-loader?limit=100000'
+    }, {
+      test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+      loader: 'imports-loader?jQuery=jquery'
     }]
   }
 };

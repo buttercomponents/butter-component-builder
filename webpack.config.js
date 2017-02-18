@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
+    'bootstrap-loader',
     path.join(__dirname, 'index.js')
   ],
   output: {
@@ -56,6 +57,9 @@ module.exports = {
     }, {
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         loader: "url-loader?limit=100000"
-        }]
+    }, {
+      test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+      loader: 'imports-loader?jQuery=jquery'
+    }] 
   }
 };
