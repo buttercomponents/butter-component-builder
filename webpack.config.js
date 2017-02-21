@@ -28,7 +28,7 @@ module.exports = {
     }
   },
   stylus: {
-    import: [path.join(__dirname, 'theme.styl'), path.join(__dirname, 'font.styl')]
+    import: path.join(__dirname, 'theme.styl')
   },
   module: {
     loaders: [{
