@@ -6,6 +6,7 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'bootstrap-loader',
+    'webpack-material-design-icons',
     './src/index.js'
   ],
   output: {
@@ -16,7 +17,7 @@ module.exports = {
   },
   externals: ['react', 'react-dom'],
   stylus: {
-    import: path.join(__dirname, 'theme.styl'),
+    import: [path.join(__dirname, 'theme.styl'), path.join(__dirname, 'font.styl')]
   },
   module: {
     loaders: [{

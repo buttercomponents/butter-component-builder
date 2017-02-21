@@ -8,6 +8,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'bootstrap-loader',
+    'webpack-material-design-icons',
     path.join(__dirname, 'index.js')
   ],
   output: {
@@ -27,7 +28,7 @@ module.exports = {
     }
   },
   stylus: {
-    import: path.join(__dirname, 'theme.styl'),
+    import: [path.join(__dirname, 'theme.styl'), path.join(__dirname, 'font.styl')]
   },
   module: {
     loaders: [{

@@ -8,6 +8,8 @@ let Test = ({t}) => (
         {t('translated')}
         <br/>
         <button className="btn btn-primary">test bootstrap</button>
+        <br/>
+        <i className="material-icons">arrow_back</i>test material icons
     </div>
 )
 
