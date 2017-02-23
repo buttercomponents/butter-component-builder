@@ -28,7 +28,8 @@ module.exports = {
     }
   },
   stylus: {
-    import: path.join(__dirname, 'theme.styl')
+    use: [require('nib')()],
+    import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
   },
   module: {
     loaders: [{

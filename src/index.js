@@ -1,6 +1,8 @@
 import React from 'react';
 import {translate} from 'react-i18next';
 
+import style from './dummy.styl'
+
 let Test = ({t}) => (
     <div>
         test
