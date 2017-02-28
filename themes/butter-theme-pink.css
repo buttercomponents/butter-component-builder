@@ -1,12 +1,10 @@
-@import "~typeface-dosis";
-
 .theme-pink{
     --Bg-color: #181C25;
     --Nav-color: #181C25;
     --Main-color: #FF1744;
     --Input-bg-color: #121315;
     --Font-normal: 'Arial', sans-serif;
-    --Font-title: 'Dosis SemiBold', sans-serif;
+    --Font-title: 'Dosis', sans-serif;
     --Button-hover: #CF1A3D;
     --Button-active: #FF496C;
 }
