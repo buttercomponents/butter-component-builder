@@ -1,4 +1,4 @@
-@import url("../node_modules/typeface-dosis/index.css");
+@import url("~typeface-dosis/index.css");
 
 .theme-dark{
     --Bg-color: #17181b;
