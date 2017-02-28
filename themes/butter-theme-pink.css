@@ -1,5 +1,4 @@
-@import "../node_modules/typeface-dosis/index.css"
-
+@import url("../node_modules/typeface-dosis/index.css");
 .theme-pink{
     --Bg-color: #181C25;
     --Nav-color: #181C25;
