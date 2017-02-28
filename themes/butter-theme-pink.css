@@ -1,4 +1,4 @@
-@import url("./fonts/Dosis/index.css");
+@import "../node_modules/typeface-dosis/index.css"
 
 .theme-pink{
     --Bg-color: #181C25;
