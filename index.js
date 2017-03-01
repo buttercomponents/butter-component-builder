@@ -9,11 +9,10 @@ import i18n from './i18n';
 let testData = {}
 
 try {
-    testData = require('json!btm_test');
+    testData = require('btm_test').default;
 } catch (e){
     console.error ('could not load test data')
 }
-
 
 const root = document.getElementById('root')
 root.className = "theme-dark";

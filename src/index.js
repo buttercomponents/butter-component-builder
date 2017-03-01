@@ -3,7 +3,7 @@ import {translate} from 'react-i18next';
 
 import style from './dummy.styl'
 
-let Test = ({t}) => (
+let Test = ({test, t}) => (
     <div>
         test
         <br/>
@@ -14,6 +14,8 @@ let Test = ({t}) => (
         <i className="material-icons">arrow_back</i>test material icons
         <br/>
         <p className={style.testTheme}>Theme Main color</p>
+        <br/>
+        <p>Test data loading: {test}</p>
     </div>
 )
 
