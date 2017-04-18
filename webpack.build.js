@@ -28,8 +28,8 @@ module.exports = {
         presets: ['es2015', 'stage-0', 'react']
       },
       include: [
-        path.join(process.env.PWD, './src'),
-        path.join(process.env.PWD, './test'),
+        path.join(process.env.PWD || process.cwd(), './src'),
+        path.join(process.env.PWD || process.cwd(), './test'),
       ]
     }, {
       test: /\.(styl)$/,
