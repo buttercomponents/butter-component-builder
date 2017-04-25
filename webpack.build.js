@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -10,16 +9,12 @@ module.exports = {
     './src/index.js'
   ],
   output: {
-    path: 'dist',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/',
     libraryTarget: 'umd'
   },
   externals: ['react', 'react-dom'],
-  stylus: {
-    use: [require('nib')()],
-    import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
-  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -33,10 +28,25 @@ module.exports = {
       ]
     }, {
       test: /\.(styl)$/,
-      loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+      use: [
+        'style-loader',
+        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'postcss-loader',
+        {
+          loader: 'stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
+          options: {
+            use: [require('nib')()],
+            import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
+          },
+        },
+      ],
     },{
       test: /\.(css)$/,
-      loader: 'style-loader!css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+      use: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader'
+        ]
     }, {
       test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
       loader: 'url-loader?limit=100000'
