@@ -16,7 +16,7 @@ module.exports = {
   },
   externals: ['react', 'react-dom'],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
       loader: 'babel-loader',
       query: {
@@ -31,7 +31,6 @@ module.exports = {
       use: [
         'style-loader',
         'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-        'postcss-loader',
         {
           loader: 'stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
           options: {
@@ -45,7 +44,6 @@ module.exports = {
       use: [
           'style-loader',
           'css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'postcss-loader'
         ]
     }, {
       test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
