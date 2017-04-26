@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -20,19 +19,15 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve:{
-    modulesDirectory: path.join(process.cwd(), 'node_modules'),
+    modules: [path.join(process.cwd(), 'node_modules')],
     alias: {
       node_modules: path.join(process.cwd(), 'node_modules'),
       btm_src: path.join (process.cwd(), 'src/index.js'),
       btm_test: path.join (process.cwd(), 'test/data.js')
     }
   },
-  stylus: {
-    use: [require('nib')()],
-    import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
-  },
   module: {
-    loaders: [{
+      rules: [{
       test: /\.jsx?$/,
       loader: 'babel-loader',
       query: {
@@ -52,11 +47,24 @@ module.exports = {
       ]
     }, {
       test: /\.(styl)$/,
-      loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+      use: [
+        'style-loader',
+        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        {
+          loader: 'stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
+          options: {
+            use: [require('nib')()],
+            import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
+          },
+        },
+      ],
     },{
       test: /\.(css)$/,
-      loader: 'style-loader!css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-    }, {
+      use: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        ]
+    },{
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         loader: "url-loader?limit=100000"
     }, {
