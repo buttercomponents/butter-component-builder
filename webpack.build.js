@@ -21,7 +21,6 @@ module.exports = {
         'react-addons-css-transition-group': { commonjs: 'react-addons-css-transition-group', commonjs2: 'react-addons-css-transition-group', amd: 'react-addons-css-transition-group', root: 'react-addons-css-transition-group'},
         'react-i18next':  { commonjs: 'react-i18next', commonjs2:'react-i18next', amd: 'react-i18next', root: 'react-i18next' }
     },
-    
     module: {
         rules: [{
             test: /\.jsx?$/,
