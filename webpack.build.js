@@ -9,7 +9,7 @@ module.exports = {
     './src/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(process.env.PWD||process.cwd(), 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/',
     libraryTarget: 'umd'
