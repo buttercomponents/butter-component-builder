@@ -9,8 +9,6 @@ let Test = ({test, t}) => (
         <br/>
         {t('translated')}
         <br/>
-        <button className="btn btn-primary">test bootstrap</button>
-        <br/>
         <i className="material-icons">arrow_back</i>test material icons
         <br/>
         <p className={style.testTheme}>Theme Main color</p>
