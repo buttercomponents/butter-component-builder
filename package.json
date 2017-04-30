@@ -37,7 +37,7 @@
     "babel-preset-stage-0": "^6.0.15",
     "bootstrap-loader": "^2.0.0-beta.21",
     "bootstrap-sass": "^3.3.7",
-    "butter-installer-theme": "^0.1.0",
+    "butter-installer-themes": "^0.3.1",
     "css-loader": "^0.28.0",
     "css-modules-require-hook": "^4.0.6",
     "eslint": "3.19.0",
