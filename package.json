@@ -1,4 +1,4 @@
-t{
+{
   "name": "butter-component-builder",
   "version": "0.0.5",
   "description": "A base class to build Butter Components",
