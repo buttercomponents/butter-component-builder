@@ -7,6 +7,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'bootstrap-loader',
+    'butter-installer-theme',
     'webpack-material-design-icons',
     path.join(__dirname, 'index.js')
   ],
