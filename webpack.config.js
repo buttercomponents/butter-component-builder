@@ -6,7 +6,6 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    'bootstrap-loader',
     'butter-installer-themes',
     'webpack-material-design-icons',
     path.join(__dirname, 'index.js')
@@ -52,7 +51,7 @@ module.exports = {
         'style-loader',
         'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
         {
-          loader: 'stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
+          loader: 'stylus-loader',
           options: {
             use: [require('nib')()],
             import: ['~nib/index.styl', path.join(__dirname, 'styl/app.styl')]
@@ -68,9 +67,6 @@ module.exports = {
     },{
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         loader: "url-loader?limit=100000"
-    }, {
-      test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
-      loader: 'imports-loader?jQuery=jquery'
     }]
   }
 };
