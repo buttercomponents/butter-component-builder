@@ -38,15 +38,15 @@ module.exports = {
             'locals': ['module']
           }]
         }]],
-        presets: ['es2015', 'stage-0', 'react']
+          presets: [git'es2015', 'stage-0', 'react']
       },
-      include: [
-        path.join(process.cwd(), 'src'),
-        path.join(process.cwd(), 'test'),
-        path.join(__dirname, 'index.js')
-        /node_modules\/(butter-.*)/
-      ]
-    }, {
+          include: [
+              path.join(process.cwd(), 'src'),
+              path.join(process.cwd(), 'test'),
+              path.join(__dirname, 'index.js'),
+              /node_modules\/(butter-.*)/
+          ]
+      }, {
       test: /\.(styl)$/,
       use: [
         'style-loader',
