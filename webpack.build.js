@@ -30,6 +30,7 @@ module.exports = {
             include: [
                 path.join(process.env.PWD||process.cwd(), './src'),
                 path.join(process.env.PWD||process.cwd(), './test'),
+                /node_modules\/(butter-.*)/
             ]
         }, {
             test: /\.(styl)$/,

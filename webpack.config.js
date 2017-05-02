@@ -44,6 +44,7 @@ module.exports = {
         path.join(process.cwd(), 'src'),
         path.join(process.cwd(), 'test'),
         path.join(__dirname, 'index.js')
+        /node_modules\/(butter-.*)/
       ]
     }, {
       test: /\.(styl)$/,
