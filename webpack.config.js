@@ -38,7 +38,7 @@ module.exports = {
             'locals': ['module']
           }]
         }]],
-          presets: [git'es2015', 'stage-0', 'react']
+          presets: ['es2015', 'stage-0', 'react']
       },
           include: [
               path.join(process.cwd(), 'src'),
