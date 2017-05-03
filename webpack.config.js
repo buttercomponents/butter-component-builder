@@ -7,6 +7,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'webpack-material-design-icons',
+    path.join(__dirname, 'themes.js'),
     path.join(__dirname, 'index.js')
   ],
   output: {
