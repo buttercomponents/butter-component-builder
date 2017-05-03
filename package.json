@@ -27,6 +27,10 @@
     "url": "https://github.com/buttercomponents/butter-component-builder/issues"
   },
   "homepage": "https://github.com/buttercomponents/butter-component-builder",
+  "devDependencies": {
+    "butter-theme-base": "^0.1.0",
+    "butter-theme-dark": "^0.1.3"
+  },
   "dependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^7.2.2",
@@ -35,8 +39,6 @@
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
-    "butter-theme-base": "^0.1.0",
-    "butter-theme-dark": "^0.1.3",
     "css-loader": "^0.28.0",
     "css-modules-require-hook": "^4.0.6",
     "eslint": "3.19.0",
