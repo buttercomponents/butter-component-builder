@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var packageJSON = require(path.join(__dirname, 'package.json'))
+var packageJSON = require(path.join(process.cwd(), 'package.json'))
 
 themes = Object.keys(packageJSON.devDependencies)
                .concat(Object.keys(packageJSON.dependencies))
