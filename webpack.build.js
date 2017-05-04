@@ -6,6 +6,7 @@ module.exports = {
     devtool: 'eval',
     entry: [
         'webpack-material-design-icons',
+        'butter-theme-base',
         './src/index.js'
     ],
     output: {
