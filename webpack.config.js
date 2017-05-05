@@ -1,8 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
-var packageJSON = require(path.join(process.cwd(), 'package.json'))
+var packageJSON = require(path.join(process.cwd(), 'package.json'));
+var butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 
-themes = Object.keys(packageJSON.devDependencies)
+var butter_themes = Object.keys(packageJSON.devDependencies)
                .concat(Object.keys(packageJSON.dependencies))
                .filter((p) => (/(butter-theme-.*)/.test(p)))
 
@@ -14,7 +15,7 @@ module.exports = {
         'webpack-material-design-icons',
         'butter-theme-base',
         path.join(__dirname, 'index.js')
-    ].concat(themes),
+    ].concat(butter_themes),
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -24,6 +25,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     resolve:{
+        extensions: ['.js', '.jsx'],
         modules: [path.join(process.cwd(), 'node_modules')],
         alias: {
             node_modules: path.join(process.cwd(), 'node_modules'),
@@ -50,7 +52,7 @@ module.exports = {
                 path.join(process.cwd(), 'src'),
                 path.join(process.cwd(), 'test'),
                 path.join(__dirname, 'index.js'),
-                /node_modules\/(butter-.*)/
+                butter_components
             ]
         }, {
             test: /\.(styl)$/,
