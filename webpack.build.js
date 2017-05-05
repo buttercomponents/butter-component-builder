@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractStyle = require("extract-text-webpack-plugin");
+var butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 
 module.exports = {
     devtool: 'eval',
@@ -18,7 +19,6 @@ module.exports = {
     externals: {
         'react': { commonjs: 'react', commonjs2: 'react', amd: 'react', root: 'React' },
         'react-dom': { commonjs: 'react-dom', commonjs2: 'react-dom', amd: 'react-dom', root: 'ReactDOM' },
-        'react-addons-css-transition-group': { commonjs: 'react-addons-css-transition-group', commonjs2: 'react-addons-css-transition-group', amd: 'react-addons-css-transition-group', root: 'react-addons-css-transition-group'},
         'react-i18next':  { commonjs: 'react-i18next', commonjs2:'react-i18next', amd: 'react-i18next', root: 'react-i18next' }
     },
     module: {
@@ -31,7 +31,7 @@ module.exports = {
             include: [
                 path.join(process.env.PWD||process.cwd(), './src'),
                 path.join(process.env.PWD||process.cwd(), './test'),
-                /node_modules\/(butter-.*)/
+                butter_components
             ]
         }, {
             test: /\.(styl)$/,
