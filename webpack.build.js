@@ -6,7 +6,7 @@ var butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 module.exports = {
     devtool: 'eval',
     entry: [
-        'webpack-material-design-icons',
+        'webpack-md-icons',
         'butter-theme-base',
         './src/index.js'
     ],
