@@ -3,6 +3,12 @@ var webpack = require('webpack');
 var ExtractStyle = require("extract-text-webpack-plugin");
 var butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 
+var all_includes = [
+    path.join(process.env.PWD||process.cwd(), './src'),
+    path.join(process.env.PWD||process.cwd(), './test'),
+    butter_components
+];
+
 module.exports = {
     devtool: 'eval',
     entry: [
@@ -24,17 +30,14 @@ module.exports = {
     module: {
         rules: [{
             test: /\.jsx?$/,
+            include: all_includes,
             loader: 'babel-loader',
             query: {
                 presets: ['es2015', 'stage-0', 'react']
-            },
-            include: [
-                path.join(process.env.PWD||process.cwd(), './src'),
-                path.join(process.env.PWD||process.cwd(), './test'),
-                butter_components
-            ]
+            }
         }, {
             test: /\.(styl)$/,
+            include: all_includes,
             loader: ExtractStyle.extract({
                 fallback:  "style-loader",
                 loader: [
