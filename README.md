@@ -1,6 +1,8 @@
 butter-component-builder
 =====================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/buttercomponents/butter-component-builder.svg)](https://greenkeeper.io/)
+
 The minimal dev environment to enable live-editing Butter React components.
 
 ### Usage
