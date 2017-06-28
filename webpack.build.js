@@ -4,10 +4,6 @@ var packageJSON = require(path.join(process.cwd(), 'package.json'));
 var ExtractStyle = require("extract-text-webpack-plugin");
 var butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 
-var butter_themes = Object.keys(packageJSON.devDependencies)
-                          .concat(Object.keys(packageJSON.dependencies))
-                          .filter((p) => (/(butter-theme-.*)/.test(p)))
-
 var all_includes = [
     path.join(process.env.PWD||process.cwd(), './src'),
     path.join(process.env.PWD||process.cwd(), './test'),
@@ -18,9 +14,8 @@ module.exports = {
     devtool: 'eval',
     entry: [
         'webpack-md-icons',
-        'butter-theme-base',
         './src/index.js'
-    ].concat(butter_themes),
+    ],
     output: {
         path: path.join(process.env.PWD||process.cwd(), 'dist'),
         filename: 'bundle.js',
