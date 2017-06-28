@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/buttercomponents/butter-component-builder",
   "devDependencies": {
-    "butter-theme-base": "butterthemes/butter-theme-base",
     "butter-theme-dark": "butterthemes/butter-theme-dark",
     "butter-theme-pink": "butterthemes/butter-theme-pink"
   },
@@ -40,6 +39,7 @@
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
+    "butter-theme-base": "butterthemes/butter-theme-base",
     "css-loader": "^0.28.0",
     "css-modules-require-hook": "^4.0.6",
     "eslint": "3.19.0",
