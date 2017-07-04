@@ -1,12 +1,10 @@
-// Gives nicer scrollbars to an element
+// Make an element scrollable
 scrollable()
     overflow-x: hidden
-    
     // Overflow: overlay is an undocumented webkit feature. It places the scrollbar *on top* of the content instead of eating some 16px.
     // It's buggy, though (it paints the scrollbar *over* the content and composites badly, so it will crop the content anyway )
     overflow-y: overflow
-   
-   // Inertial scrolling for touch devices (mostly useless here)
+    // Inertial scrolling for touch devices (mostly useless here)
     overflow-scrolling: touch
     
 overlay(type)
