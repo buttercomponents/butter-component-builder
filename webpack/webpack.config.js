@@ -1,8 +1,8 @@
-require("dotenv").config({ silent: true });
+require('dotenv').config({ silent: true });
 
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const path = require("path");
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 const packageJSON = require(path.join(process.cwd(), 'package.json'));
 const butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
@@ -22,17 +22,17 @@ module.exports = {
 
   output: {
     path: path.join(process.env.PWD||process.cwd(), 'build'),
-    filename: "[name].[hash].js",
-    chunkFilename: "[name].[chunkhash].js",
-    publicPath: "/",
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    publicPath: '/',
   },
 
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['.js', '.jsx'],
     modules: [path.join(process.cwd(), 'node_modules')],
     alias: {
       node_modules: path.join(process.cwd(), 'node_modules'),
-      "~": path.join(process.cwd(), 'node_modules'),
+      '~': path.join(process.cwd(), 'node_modules'),
       btm_src: path.join (process.cwd(), 'src/index.js'),
       btm_test: path.join (process.cwd(), 'test/data.js'),
     }
@@ -48,9 +48,9 @@ module.exports = {
   cssConfig: (CSS_LOADER_OPTIONS) => [
     { test: /\.css$/,
       loader: ExtractTextPlugin.extract({
-        fallback: "style-loader",
+        fallback: 'style-loader',
         use: [`css-loader?${CSS_LOADER_OPTIONS}`, {
-          loader: "postcss-loader",
+          loader: 'postcss-loader',
           options: {
             exclude: /node_modules/,
           }
@@ -59,7 +59,7 @@ module.exports = {
     }, {
       test: /\.(styl)$/,
       loader: ExtractTextPlugin.extract({
-        fallback: "style-loader",
+        fallback: 'style-loader',
         use: [
           `css-loader?modules&${CSS_LOADER_OPTIONS}`,
           {
@@ -80,7 +80,7 @@ module.exports = {
         test: /\.jsx?$/,
         //exclude: /node_modules/,
         loader: 'babel-loader',
-        options: { cacheDirectory: process.env.NODE_ENV === "development" },
+        options: { cacheDirectory: process.env.NODE_ENV === 'development' },
       },{
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         use: [

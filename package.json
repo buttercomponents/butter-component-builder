@@ -5,7 +5,7 @@
   "scripts": {
     "install": "node update-package.json.js",
     "start": "node server/server.js",
-    "lint": "eslint *.js src/** webpack/** server/**"
+    "lint": "eslint *.js src/**.js webpack/**.js server/**.js"
   },
   "repository": {
     "type": "git",

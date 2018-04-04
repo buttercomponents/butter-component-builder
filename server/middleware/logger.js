@@ -1,10 +1,10 @@
-const morgan = require("morgan");
+const morgan = require('morgan');
 
 function logger(...args) {
-  if (process.env.NODE_ENV === "production") {
-    morgan("tiny")(...args);
+  if (process.env.NODE_ENV === 'production') {
+    morgan('tiny')(...args);
   } else {
-    morgan("dev")(...args);
+    morgan('dev')(...args);
   }
 }
 

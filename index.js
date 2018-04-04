@@ -15,7 +15,7 @@ try {
 }
 
 const root = document.getElementById('root')
-root.className = "theme-dark";
+root.className = 'theme-dark';
 
 
 render(<I18nextProvider i18n={ i18n }><Component {...testData} /></I18nextProvider>, root);

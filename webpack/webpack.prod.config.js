@@ -1,11 +1,11 @@
-const config = require("./webpack.config");
+const config = require('./webpack.config');
 
-const CSS_LOADER_OPTIONS = "sourceMaps&minimize&localIdentName=[name]--[hash:base64:5]";
+const CSS_LOADER_OPTIONS = 'sourceMaps&minimize&localIdentName=[name]--[hash:base64:5]';
 
 module.exports = {
-  mode: "production",
+  mode: 'production',
 
-  devtool: "source-map",
+  devtool: 'source-map',
 
   entry: {
     app: [

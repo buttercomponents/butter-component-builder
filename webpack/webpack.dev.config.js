@@ -1,18 +1,18 @@
 const path = require('path');
-const webpack = require("webpack");
-const config = require("./webpack.config");
+const webpack = require('webpack');
+const config = require('./webpack.config');
 
-const CSS_LOADER_OPTIONS = "sourceMaps&localIdentName=[name]--[hash:base64:5]";
+const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
 
-  devtool: "eval", // use cheap-eval-source-map for slower builds but better debugging
+  devtool: 'eval', // use cheap-eval-source-map for slower builds but better debugging
 
   entry: {
     app: [
-      "react-hot-loader/patch",
-      "webpack-hot-middleware/client?reload=true",
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client?reload=true',
       ...(config.entry.app || []),
       path.join(__dirname, '../index.js')
     ],
