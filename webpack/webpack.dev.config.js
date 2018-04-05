@@ -9,14 +9,14 @@ module.exports = {
 
   devtool: 'eval', // use cheap-eval-source-map for slower builds but better debugging
 
-  entry: {
+  entry: Object.assign(config.entry, {
     app: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client?reload=true',
       ...(config.entry.app || []),
       path.join(__dirname, '../index.js')
     ],
-  },
+  }),
 
   resolve: config.resolve,
 

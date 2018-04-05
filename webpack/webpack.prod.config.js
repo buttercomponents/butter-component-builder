@@ -7,12 +7,9 @@ module.exports = {
 
   devtool: 'source-map',
 
-  entry: {
-    app: [
-      ...(config.entry.app || []),
-       './src/index.js'
-    ]
-  },
+  entry: Object.assign(config.entry, {
+    dist: './src/index.js'
+  }),
 
   resolve: config.resolve,
 
