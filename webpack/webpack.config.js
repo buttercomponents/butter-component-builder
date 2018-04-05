@@ -7,8 +7,8 @@ const path = require('path');
 const packageJSON = require(path.join(process.cwd(), 'package.json'));
 const butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
 
-const butter_themes = new Set(Object.keys(packageJSON.devDependencies)
-                                    .concat(Object.keys(packageJSON.dependencies))
+const butter_themes = new Set(Object.keys(packageJSON.devDependencies || {})
+                                    .concat(Object.keys(packageJSON.dependencies || {}))
                                     .filter((p) => (/(butter-theme-.*)/.test(p))))
 butter_themes.add('butter-theme-base')
 
