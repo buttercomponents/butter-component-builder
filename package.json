@@ -4,7 +4,7 @@
   "description": "A base class to build Butter Components",
   "scripts": {
     "install": "node update-package.json.js",
-    "start": "node server/server.js",
+    "start": "webpack-dev-server --config webpack/webpack.dev.config.js --progress --profile --colors --open",
     "lint": "eslint *.js src/**.js webpack/**.js server/**.js"
   },
   "repository": {
@@ -43,16 +43,13 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "butter-theme-base": "butterthemes/butter-theme-base",
-    "compression": "^1.7.2",
     "css-loader": "^0.28.11",
     "dotenv": "^5.0.1",
-    "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "i18next": "^10.6.0",
     "modify-pkg-up": "^1.0.1",
-    "morgan": "^1.9.0",
     "nib": "^1.1.2",
     "postcss": "^6.0.21",
     "postcss-browser-reporter": "^0.5.0",
@@ -72,9 +69,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.13",
-    "webpack-dashboard": "^1.1.1",
-    "webpack-dev-middleware": "^3.1.0",
-    "webpack-hot-middleware": "^2.21.2",
+    "webpack-dev-server": "^3.1.1",
     "webpack-md-icons": "^0.3.0"
   },
   "postcss": {
