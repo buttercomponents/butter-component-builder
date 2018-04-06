@@ -7,6 +7,9 @@
     "start": "webpack-dev-server --config webpack/webpack.dev.config.js --progress --profile --colors --open",
     "lint": "eslint *.js src/**.js webpack/**.js server/**.js"
   },
+  "bin": {
+    "bcb-run": "run.sh"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/buttercomponents/butter-component-builder.git"

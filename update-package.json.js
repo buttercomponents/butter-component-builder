@@ -10,10 +10,10 @@ modifyPkgUp((pkg) => {
     return Object.assign(pkg,{
         scripts: {
             'prepublish': 'npm run build',
-            'install': './run.sh install',
-            'build':   './run.sh build',
-            'start':   './run.sh start',
-            'lint':    './run.sh lint'
+            'install': 'bcb-run install',
+            'build':   'bcb-run build',
+            'start':   'bcb-run start',
+            'lint':    'bcb-run lint'
         }
     })
 }).catch(() => {})
