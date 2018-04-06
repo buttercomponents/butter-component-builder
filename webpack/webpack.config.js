@@ -49,12 +49,7 @@ module.exports = {
     { test: /\.css$/,
       loader: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: [`css-loader?${CSS_LOADER_OPTIONS}`, {
-          loader: 'postcss-loader',
-          options: {
-            exclude: /node_modules/,
-          }
-        }]
+        use: [`css-loader?${CSS_LOADER_OPTIONS}`]
       })
     }, {
       test: /\.(styl)$/,
