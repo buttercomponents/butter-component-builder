@@ -12,7 +12,13 @@ module.exports = {
   devtool: 'inline-source-map', // use cheap-eval-source-map for slower builds but better debugging
   devServer: {
     contentBase: './build',
-    hot: true
+    hot: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+    port: 3000,
+    progress: true
   },
   entry: Object.assign(config.entry, {
     app: [
