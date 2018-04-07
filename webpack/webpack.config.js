@@ -11,6 +11,45 @@ const butter_themes = new Set(Object.keys(packageJSON.devDependencies || {})
                                     .filter((p) => (/(butter-theme-.*)/.test(p))))
 butter_themes.add('butter-theme-base')
 
+
+const jsxConfig = {
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  include: [...butter_components,
+            /butter-component-builder/,
+            path.resolve('./src/')],
+  loader: 'babel-loader',
+  options: {
+    cacheDirectory: process.env.NODE_ENV === 'development',
+  },
+}
+
+const cssConfig = (CSS_LOADER_OPTIONS) => [
+  { test: /\.css$/,
+    //      exclude: /node_modules/,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: [`css-loader?${CSS_LOADER_OPTIONS}`]
+    })
+  }, {
+    test: /\.(styl)$/,
+    //      exclude: /node_modules/,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: [
+        `css-loader?modules&${CSS_LOADER_OPTIONS}`,
+        {
+          loader: 'stylus-loader',
+          options: {
+            use: [require('nib')()],
+            import: ['~nib/index.styl', path.join(__dirname, '../styl/app.styl')],
+          },
+        },
+      ]
+    }),
+  }
+]
+
 module.exports = {
   entry: {
     app: [
@@ -42,38 +81,13 @@ module.exports = {
     new ExtractTextPlugin('styles.css')
   ],
 
-  cssConfig: (CSS_LOADER_OPTIONS) => [
-    { test: /\.css$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [`css-loader?${CSS_LOADER_OPTIONS}`]
-      })
-    }, {
-      test: /\.(styl)$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          `css-loader?modules&${CSS_LOADER_OPTIONS}`,
-          {
-            loader: 'stylus-loader',
-            options: {
-              use: [require('nib')()],
-              import: ['~nib/index.styl', path.join(__dirname, '../styl/app.styl')]
-            },
-          },
-        ]
-      }),
-    }
   ],
-
+  jsxConfig: jsxConfig,
+  cssConfig: cssConfig,
   module: {
     rules: [
+      jsxConfig,
       {
-        test: /\.jsx?$/,
-        //exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: { cacheDirectory: process.env.NODE_ENV === 'development' },
-      },{
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         use: [
           'url-loader?limit=100000'
