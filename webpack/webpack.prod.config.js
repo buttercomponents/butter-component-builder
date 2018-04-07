@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: Object.assign(config.entry, {
-    dist: './src/index.js'
+    app: './index.js'
   }),
 
   resolve: config.resolve,
