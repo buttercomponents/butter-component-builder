@@ -23,7 +23,6 @@ module.exports = {
   entry: Object.assign(config.entry, {
     app: [
       'react-hot-loader/patch',
-//      'webpack-hot-middleware/client?reload=true',
       ...(config.entry.app || []),
       path.join(__dirname, '../src/index.js')
     ],
