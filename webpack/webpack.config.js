@@ -2,6 +2,7 @@ require('dotenv').config({ silent: true });
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 const packageJSON = require(path.join(process.cwd(), 'package.json'));
 const butter_components = new RegExp('node_modules\\'+path.sep+'(butter-.*)');
@@ -77,10 +78,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.optimize.SplitChunksPlugin({
+      name: 'manifest'
     }),
-    new ExtractTextPlugin('styles.css')
-  ],
-
+    new ExtractTextPlugin('styles.css'),
   ],
   jsxConfig: jsxConfig,
   cssConfig: cssConfig,
