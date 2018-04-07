@@ -4,7 +4,7 @@
   "description": "A base class to build Butter Components",
   "scripts": {
     "install": "node update-package.json.js",
-    "start": "webpack-dev-server --config webpack/webpack.dev.config.js --progress --profile --colors --open",
+    "start": "webpack-dev-server --config webpack/webpack.dev.config.js --progress --profile --colors",
     "lint": "eslint *.js src/**.js webpack/**.js server/**.js"
   },
   "bin": {
