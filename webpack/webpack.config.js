@@ -66,7 +66,7 @@ module.exports = {
   output: {
     path: path.join(process.env.PWD||process.cwd(), 'build'),
     filename: '[name].[hash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[hash].js',
     publicPath: '/',
   },
 
