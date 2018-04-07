@@ -1,6 +1,5 @@
 require('dotenv').config({ silent: true });
 
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
@@ -39,8 +38,6 @@ module.exports = {
   },
 
   plugins: [
-    new HTMLWebpackPlugin({
-      template: path.join(__dirname, '../index.html')
     }),
     new ExtractTextPlugin('styles.css')
   ],

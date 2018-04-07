@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 const config = require('./webpack.config');
 
 const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
@@ -26,6 +28,9 @@ module.exports = {
   output: config.output,
 
   plugins: [
+    new HTMLWebpackPlugin({
+      template: path.join(__dirname, '../index.html')
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
