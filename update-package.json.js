@@ -8,7 +8,7 @@ modifyPkgUp((pkg) => {
     }
 
     return Object.assign(pkg,{
-        main: 'bundle.js',
+        main: 'dist/bundle.js',
         scripts: {
             'prepublish': 'npm run build',
             'install': 'bcb-run install',
