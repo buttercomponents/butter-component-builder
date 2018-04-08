@@ -19,11 +19,11 @@ butter_components.add('butter-base-components')
 
 const jsxConfig = {
   test: /\.jsx?$/,
-  exclude: /node_modules/,
-  include: [
-    Array.of(butter_components).map(c => new RegExp(c)),
-    path.resolve('./src/')
-  ],
+  /* exclude: /node_modules/,
+   * include: [
+   *   Array.of(butter_components).map(c => new RegExp(c)),
+   *   path.resolve('./src/')
+   * ],*/
   loader: 'babel-loader',
   options: {
     cacheDirectory: process.env.NODE_ENV === 'development',
