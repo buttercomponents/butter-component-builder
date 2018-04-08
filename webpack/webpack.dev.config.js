@@ -24,7 +24,7 @@ module.exports = {
     app: [
       'react-hot-loader/patch',
       ...(config.entry.app || []),
-      path.join(__dirname, '../src/index.js')
+      path.join(__dirname, '../index.js')
     ],
   }),
 
