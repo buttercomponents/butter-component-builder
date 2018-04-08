@@ -2,7 +2,7 @@
 arg=$1; shift
 
 case $arg in
-        install) PATH=$PATH:../.bin webpack --config ../butter-component-builder/webpack/webpack.prod.config.js --progress --profile --colors $@;;
+        install) PATH=$PATH:../.bin node ../butter-component-builder/update-package.json.js;;
         build) PATH=$PATH:../.bin webpack --config node_modules/butter-component-builder/webpack/webpack.build.config.js --progress --profile --colors $@;;
         start) webpack-dev-server --config node_modules/butter-component-builder/webpack/webpack.dev.config.js --progress --profile --colors $@;;
         open) $0 start --open $@;;
