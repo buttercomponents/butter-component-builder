@@ -1,13 +1,17 @@
 #!/bin/sh
 arg=$1; shift
 
+for p in ./node_modules ../ ../; do
+        test -d $p/butter-component-builder && BCB_PATH=$p
+done
+
 case $arg in
-        install) PATH=$PATH:../.bin node ../butter-component-builder/update-package.json.js;;
-        build) PATH=$PATH:../.bin webpack --config node_modules/butter-component-builder/webpack/webpack.build.config.js --progress --profile --colors $@;;
-        start) webpack-dev-server --config node_modules/butter-component-builder/webpack/webpack.dev.config.js --progress --profile --colors $@;;
+        install) PATH=$PATH:../.bin:../../.bin node ${BCB_PATH}/butter-component-builder/update-package.json.js;;
+        build) PATH=$PATH:../.bin webpack --config ${BCB_PATH}/butter-component-builder/webpack/webpack.build.config.js --progress --profile --colors $@;;
+        start) webpack-dev-server --config ${BCB_PATH}/butter-component-builder/webpack/webpack.dev.config.js --progress --profile --colors $@;;
         open) $0 start --open $@;;
         lint) eslint src $@;;
-        update) node node_modules/butter-component-builder/update-package.json.js $@;;
+        update) node ${BCB_PATH}/butter-component-builder/update-package.json.js $@;;
         *) echo "
 usage $0 [install,build,start,lint]
       install:    run as a hook when installing package
