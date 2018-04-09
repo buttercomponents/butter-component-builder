@@ -9,7 +9,8 @@ modifyPkgUp((pkg) => {
         main: 'dist/bundle.js',
         scripts: {
             'prepublish': 'npm run build',
-            'install': 'bcb-run install',
+            # oh npm…
+            'install': 'PATH=$PATH:../.bin bcb-run install',
             'build':   'bcb-run build',
             'start':   'bcb-run start',
             'lint':    'bcb-run lint'
