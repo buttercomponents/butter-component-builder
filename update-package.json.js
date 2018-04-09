@@ -1,10 +1,8 @@
 const modifyPkgUp = require('modify-pkg-up')
 
-process.chdir('../../')
-
 modifyPkgUp((pkg) => {
     if (! pkg || pkg.name === 'butter-component-builder') {
-        throw(new Error('not writting'))
+        throw(new Error(`Not Writting: ${pkg} ${process.cwd()}`))
     }
 
     return Object.assign(pkg,{
@@ -17,4 +15,4 @@ modifyPkgUp((pkg) => {
             'lint':    'bcb-run lint'
         }
     })
-}).catch(() => {})
+}).catch((e) => {console.error('fail', e)})
