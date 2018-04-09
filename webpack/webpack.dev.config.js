@@ -14,7 +14,7 @@ module.exports = {
     contentBase: './build',
     hot: true,
     overlay: {
-      warnings: true,
+//      warnings: true,
       errors: true
     },
     port: 3000,
