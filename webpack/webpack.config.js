@@ -20,10 +20,20 @@ butter_components.add('butter-base-components')
 const jsxConfig = {
   test: /\.jsx?$/,
   exclude: /node_modules\/[^butter]/,
-  loader: 'babel-loader',
-  options: {
-    cacheDirectory: process.env.NODE_ENV === 'development',
-  },
+  use: {
+    loader: 'babel-loader',
+    options: {
+      cacheDirectory: process.env.NODE_ENV === 'development',
+      presets: [[require('babel-preset-env'), {
+        targets: {
+          browsers: ['last 2 versions'],
+          node: '6.10'
+        }
+      }], require('babel-preset-react'), require('babel-preset-stage-0')],
+      plugins: [],
+//      plugins: [require('babel-plugin-transform-runtime')],
+    }
+  }
 }
 
 const cssConfig = (CSS_LOADER_OPTIONS) => [
@@ -89,7 +99,6 @@ module.exports = {
   cssConfig: cssConfig,
   module: {
     rules: [
-      jsxConfig,
       {
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         use: [

@@ -23,6 +23,7 @@ module.exports = {
 
   module: {
     rules: [
+      config.jsxConfig,
       ...config.module.rules,
       ...config.cssConfig(CSS_LOADER_OPTIONS),
     ],

@@ -6,6 +6,11 @@ const config = require('./webpack.config');
 
 const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
 
+let jsxConfig = config.jsxConfig
+Array.prototype.push.apply(jsxConfig.use.options.plugins, [
+  require('babel-plugin-transform-react-jsx-source'), require('react-hot-loader/babel')
+])
+
 module.exports = {
   mode: 'development',
 
@@ -44,6 +49,7 @@ module.exports = {
 
   module: {
     rules: [
+      jsxConfig,
       ...config.module.rules,
       ...config.cssConfig(CSS_LOADER_OPTIONS),
     ],
