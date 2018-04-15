@@ -1,6 +1,6 @@
 {
   "name": "butter-component-builder",
-  "version": "0.0.6",
+  "version": "0.1.0-alpha.0",
   "description": "A base class to build Butter Components",
   "scripts": {
     "install": "node update-package.json.js",
