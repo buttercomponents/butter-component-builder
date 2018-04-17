@@ -23,7 +23,6 @@ const jsxConfig = {
   use: {
     loader: 'babel-loader',
     options: {
-      cacheDirectory: process.env.NODE_ENV === 'development',
       presets: [[require('babel-preset-env'), {
         targets: {
           browsers: ['last 2 versions'],
