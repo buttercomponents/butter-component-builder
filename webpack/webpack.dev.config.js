@@ -9,6 +9,7 @@ const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
 Array.prototype.push.apply(jsxConfig.use.options.plugins, [
   require('babel-plugin-transform-react-jsx-source'), require('react-hot-loader/babel')
 ])
+jsxConfig.use.options.cacheDirectory = true
 
 module.exports = Object.assign(config, {
   mode: 'development',

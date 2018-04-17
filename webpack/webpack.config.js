@@ -55,19 +55,16 @@ const cssConfig = (CSS_LOADER_OPTIONS) => [
           options: {
             use: [require('nib')()],
             import: ['~nib/index.styl', path.join(__dirname, '../styl/app.styl')],
-          },
-        },
+          }
+        }
       ]
-    }),
+    })
   }
 ]
 
 const config = {
   entry: {
-    app: [
-      'webpack-md-icons',
-      ...butter_themes,
-    ],
+    themes: ['webpack-md-icons',...butter_themes],
   },
 
   output: {
