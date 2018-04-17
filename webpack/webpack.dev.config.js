@@ -16,7 +16,7 @@ module.exports = Object.assign(config, {
 
   devtool: 'inline-source-map', // use cheap-eval-source-map for slower builds but better debugging
   devServer: {
-    contentBase: './build',
+    contentBase: [process.cwd()],
     hot: true,
     overlay: {
 //      warnings: true,

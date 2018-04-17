@@ -7,10 +7,6 @@ module.exports = Object.assign (config, {
 
   devtool: 'source-map',
 
-  entry: Object.assign(config.entry, {
-    app: './index.js'
-  }),
-
   resolve: config.resolve,
 
   output: config.output,
