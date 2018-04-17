@@ -85,7 +85,11 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [path.join(process.cwd(), 'node_modules')],
+    modules: [
+      'node_modules',
+      path.join(process.cwd(), 'node_modules'),
+      ...(Array.from(butter_components).map(c => path.join(c, 'node_modules')))
+    ],
     alias: {
       node_modules: path.join(process.cwd(), 'node_modules'),
       '~': path.join(process.cwd(), 'node_modules'),
