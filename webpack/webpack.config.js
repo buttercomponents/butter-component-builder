@@ -62,7 +62,7 @@ const cssConfig = (CSS_LOADER_OPTIONS) => [
   }
 ]
 
-module.exports = {
+const config = {
   entry: {
     app: [
       'webpack-md-icons',
@@ -93,10 +93,8 @@ module.exports = {
     new webpack.optimize.SplitChunksPlugin({
       name: 'manifest'
     }),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('[name].css'),
   ],
-  jsxConfig: jsxConfig,
-  cssConfig: cssConfig,
   module: {
     rules: [
       {
@@ -107,4 +105,10 @@ module.exports = {
       }
     ],
   },
-};
+}
+
+module.exports = {
+  config: config,
+  cssConfig: cssConfig,
+  jsxConfig: jsxConfig
+}

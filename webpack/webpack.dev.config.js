@@ -2,16 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const config = require('./webpack.config');
+const {config, jsxConfig, cssConfig} = require('./webpack.config');
 
 const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
 
-let jsxConfig = config.jsxConfig
 Array.prototype.push.apply(jsxConfig.use.options.plugins, [
   require('babel-plugin-transform-react-jsx-source'), require('react-hot-loader/babel')
 ])
 
-module.exports = {
+module.exports = Object.assign(config, {
   mode: 'development',
 
   devtool: 'inline-source-map', // use cheap-eval-source-map for slower builds but better debugging
@@ -51,7 +50,7 @@ module.exports = {
     rules: [
       jsxConfig,
       ...config.module.rules,
-      ...config.cssConfig(CSS_LOADER_OPTIONS),
+      ...cssConfig(CSS_LOADER_OPTIONS),
     ],
   },
-};
+});

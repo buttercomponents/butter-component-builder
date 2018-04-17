@@ -1,8 +1,8 @@
-const config = require('./webpack.config');
+const {config, cssConfig, jsxConfig} = require('./webpack.config');
 
 const CSS_LOADER_OPTIONS = 'sourceMaps&minimize&localIdentName=[name]--[hash:base64:5]';
 
-module.exports = {
+module.exports = Object.assign (config, {
   mode: 'production',
 
   devtool: 'source-map',
@@ -23,9 +23,9 @@ module.exports = {
 
   module: {
     rules: [
-      config.jsxConfig,
+      jsxConfig,
       ...config.module.rules,
-      ...config.cssConfig(CSS_LOADER_OPTIONS),
+      ...cssConfig(CSS_LOADER_OPTIONS),
     ],
   },
-};
+});

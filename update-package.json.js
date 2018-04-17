@@ -6,7 +6,7 @@ modifyPkgUp((pkg) => {
     }
 
     return Object.assign(pkg,{
-        main: 'dist/bundle.js',
+        main: 'dist/',
         scripts: {
             'prepublish': 'npm run build',
             // oh npm…
