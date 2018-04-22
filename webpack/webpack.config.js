@@ -80,7 +80,9 @@ const config = {
     'react-i18next': 'reactI18next',
 //    'react-router': 'ReactRouter',
 //    'react-router-dom': 'ReactRouterDOM',
-    'react-transition-group': 'ReactTransitionGroup'
+    'react-transition-group': 'ReactTransitionGroup',
+    'redux': 'Redux',
+    'react-redux': 'ReactRedux'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
