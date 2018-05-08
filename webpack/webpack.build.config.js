@@ -15,4 +15,16 @@ module.exports = Object.assign(config, {
     filename: '[name].js',
     publicPath: '/',
   },
+  externals: {
+    'prop-types': 'PropTypes',
+
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'react-i18next': 'reactI18next',
+    //    'react-router': 'ReactRouter',
+    //    'react-router-dom': 'ReactRouterDOM',
+    'react-transition-group': 'ReactTransitionGroup',
+    'redux': 'Redux',
+    'react-redux': 'ReactRedux'
+  }
 });

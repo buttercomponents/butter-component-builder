@@ -10,6 +10,7 @@ Array.prototype.push.apply(jsxConfig.use.options.plugins, [
   require('babel-plugin-transform-react-jsx-source'), require('react-hot-loader/babel')
 ])
 jsxConfig.use.options.cacheDirectory = true
+jsxConfig.exclude = [/node_modules\/[^butter]/, /dist/]
 
 module.exports = Object.assign(config, {
   mode: 'development',
@@ -23,13 +24,14 @@ module.exports = Object.assign(config, {
       errors: true
     },
     port: 3000,
+    host: 'localhost',
     progress: true
   },
   entry: Object.assign(config.entry, {
+    builder: [path.join(__dirname, '../index.js')],
     app: [
       'react-hot-loader/patch',
       ...(config.entry.app || []),
-      path.join(__dirname, '../index.js')
     ],
   }),
 
