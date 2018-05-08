@@ -1,6 +1,9 @@
-var i18n = require('i18next');
+import i18n from 'i18next'
+import { reactI18nextModule} from 'react-i18next';
 
-i18n.init({
+i18n
+  .use(reactI18nextModule)
+  .init({
     fallbackLng: 'en',
 
     // have a common namespace used around the full app
@@ -11,6 +14,9 @@ i18n.init({
 
     interpolation: {
       escapeValue: false // not needed for react!!
+    },
+    react: {
+      wait: true
     }
   });
 
