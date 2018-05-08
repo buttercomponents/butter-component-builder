@@ -1,7 +1,7 @@
 #!/bin/sh
 arg=$1; shift
 
-for p in ./node_modules ../ ../; do
+for p in ./node_modules ../ ../../; do
         test -d $p/butter-component-builder && BCB_PATH=$p
 done
 
