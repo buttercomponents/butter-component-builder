@@ -14,12 +14,14 @@ butter_themes.add('butter-theme-base')
 const butter_components = new Set(Object.keys(packageJSON.devDependencies || {})
                                         .concat(Object.keys(packageJSON.dependencies || {}))
                                         .filter((p) => (/(butter-component-.*)/.test(p))))
-
 butter_components.add('butter-base-components')
 
 const jsxConfig = {
   test: /\.jsx?$/,
-  exclude: /node_modules\/[^butter]/,
+  exclude: [
+    /dist/,
+    new RegExp(`${process.cwd()}/node_modules\/[^butter]`),
+  ],
   use: {
     loader: 'babel-loader',
     options: {
