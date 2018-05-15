@@ -5,15 +5,15 @@ modifyPkgUp((pkg) => {
         throw(new Error(`Not Writting: ${pkg} ${process.cwd()}`))
     }
 
-    return Object.assign(pkg,{
+    return Object.assign(pkg, {
         main: 'dist/',
-        scripts: {
+        scripts: Object.assign({}, {
             'prepublish': 'npm run build',
             // oh npm…
-            'install': 'PATH=$PATH:../.bin bcb-run install',
+            // 'install': 'PATH=$PATH:../.bin bcb-run install',
             'build':   'bcb-run build',
             'start':   'bcb-run start',
             'lint':    'bcb-run lint'
-        }
+        }, pkg.scripts)
     })
 }).catch((e) => {console.error('fail', e)})
