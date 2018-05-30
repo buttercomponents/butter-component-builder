@@ -10,7 +10,7 @@ case $arg in
         build) PATH=$PATH:../.bin webpack --config ${BCB_PATH}/butter-component-builder/webpack/webpack.build.config.js --progress --profile --colors $@;;
         start) webpack-dev-server --config ${BCB_PATH}/butter-component-builder/webpack/webpack.dev.config.js --progress --profile --colors $@;;
         open) $0 start --open $@;;
-        lint) eslint src $@;;
+        lint) standard --env mocha src/**.js test/**.js $@;;
         update) node ${BCB_PATH}/butter-component-builder/update-package.json.js $@;;
         *) echo "
 usage $0 [install,build,start,lint]
