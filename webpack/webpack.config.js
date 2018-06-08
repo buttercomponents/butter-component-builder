@@ -16,6 +16,12 @@ const butter_components = new Set(Object.keys(packageJSON.devDependencies || {})
                                         .filter((p) => (/(butter-component-.*)/.test(p))))
 butter_components.add('butter-base-components')
 
+const butter_streamers = new Set(Object.keys(packageJSON.devDependencies || {})
+                                       .concat(Object.keys(packageJSON.dependencies || {}))
+                                       .filter((p) => (/(butter-streamer-.*)/.test(p))))
+butter_streamers.add('butter-stream-server')
+butter_streamers.add('butter-stream-selector')
+
 const jsxConfig = {
   test: /\.jsx?$/,
   exclude: [
@@ -80,6 +86,7 @@ const config = {
       'node_modules',
       path.join(process.cwd(), 'node_modules'),
       ...([...butter_components].map(c => path.join(c, 'node_modules'))),
+      ...([...butter_streamers].map(c => path.join(c, 'node_modules'))),
     ],
     alias: {
       node_modules: path.join(process.cwd(), 'node_modules'),
