@@ -99,6 +99,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.svg$/,
+        loader: 'babel-loader!react-svg-loader'
+      },
+      {
         test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
         use: [
           'url-loader?limit=100000'
