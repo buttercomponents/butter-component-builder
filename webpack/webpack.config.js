@@ -110,7 +110,7 @@ const config = {
         loader: 'babel-loader!react-svg-loader'
       },
       {
-        test: /\.(jpg|png|svg|woff2?|eot|ttf).*$/,
+        test: /\.(jpg|png|woff2?|eot|ttf).*$/,
         use: [
           'url-loader?limit=100000'
         ]
