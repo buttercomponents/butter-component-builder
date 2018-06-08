@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const {config, jsxConfig, cssConfig} = require('./webpack.config');
 
-const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]--[hash:base64:5]';
+const CSS_LOADER_OPTIONS = 'sourceMaps&localIdentName=[name]_[local]--[hash:base64:5]&-autoprefixer';
 
 Array.prototype.push.apply(jsxConfig.use.options.plugins, [
   require('babel-plugin-transform-react-jsx-source'), require('react-hot-loader/babel')

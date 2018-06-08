@@ -79,6 +79,7 @@ const config = {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',
     publicPath: '/',
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
