@@ -1,10 +1,13 @@
 require('dotenv').config({ silent: true });
 
+const path = require('path')
+const fs = require('fs')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
 const webpack = require('webpack');
 
-const packageJSON = require(path.join(process.cwd(), 'package.json'));
+const CWD = process.cwd()
+
+const packageJSON = require(path.join(CWD, 'package.json'));
 
 const butter_themes = new Set(Object.keys(packageJSON.devDependencies || {})
                                     .concat(Object.keys(packageJSON.dependencies || {}))
@@ -15,6 +18,7 @@ const butter_components = new Set(Object.keys(packageJSON.devDependencies || {})
                                         .concat(Object.keys(packageJSON.dependencies || {}))
                                         .filter((p) => (/(butter-component-.*)/.test(p))))
 butter_components.add('butter-base-components')
+butter_components.add('butter-component-builder')
 
 const butter_streamers = new Set(Object.keys(packageJSON.devDependencies || {})
                                        .concat(Object.keys(packageJSON.dependencies || {}))
@@ -22,10 +26,22 @@ const butter_streamers = new Set(Object.keys(packageJSON.devDependencies || {})
 butter_streamers.add('butter-stream-server')
 butter_streamers.add('butter-stream-selector')
 
+const butter_paths = [
+  ...([...butter_components].map(
+    c => fs.realpathSync(`${CWD}/node_modules/${c}/`)
+  )),
+  ...([...butter_streamers].map(
+    c => fs.realpathSync(`${CWD}/node_modules/${c}/`)
+  ))
+]
+
 const jsxConfig = {
   test: /\.jsx?$/,
   exclude: [ /dist/ ],
-  include: [`${process.cwd()}/src`, `${process.cwd()}/electron`, `${process.cwd()}/node_modules/butter`],
+  include: [`${CWD}/src`, `${CWD}/electron`,
+            `${CWD}/node_modules/butter`,
+            ...butter_paths
+  ],
   use: {
     loader: 'babel-loader',
     options: {
@@ -73,7 +89,7 @@ const config = {
   },
 
   output: {
-    path: path.join(process.env.PWD||process.cwd(), 'build'),
+    path: path.join(process.env.PWD||CWD, 'build'),
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',
     publicPath: '/',
@@ -82,15 +98,14 @@ const config = {
     extensions: ['.js', '.jsx'],
     modules: [
       'node_modules',
-      path.join(process.cwd(), 'node_modules'),
-      ...([...butter_components].map(c => path.join(c, 'node_modules'))),
-      ...([...butter_streamers].map(c => path.join(c, 'node_modules'))),
+      path.join(CWD, 'node_modules'),
+      ...butter_paths
     ],
     alias: {
-      node_modules: path.join(process.cwd(), 'node_modules'),
-      '~': path.join(process.cwd(), 'node_modules'),
-      btm_src: path.join (process.cwd(), 'src/index.js'),
-      btm_test: path.join (process.cwd(), 'test/data.js'),
+      node_modules: path.join(CWD, 'node_modules'),
+      '~': path.join(CWD, 'node_modules'),
+      btm_src: path.join (CWD, 'src/index.js'),
+      btm_test: path.join (CWD, 'test/data.js'),
     }
   },
 
