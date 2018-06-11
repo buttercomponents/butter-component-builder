@@ -24,10 +24,8 @@ butter_streamers.add('butter-stream-selector')
 
 const jsxConfig = {
   test: /\.jsx?$/,
-  exclude: [
-    /dist/,
-    new RegExp(`${process.cwd()}/node_modules\/[^butter]`),
-  ],
+  exclude: [ /dist/ ],
+  include: [`${process.cwd()}/src`, `${process.cwd()}/electron`, `${process.cwd()}/node_modules/butter`],
   use: {
     loader: 'babel-loader',
     options: {
