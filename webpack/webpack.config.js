@@ -16,15 +16,11 @@ butter_themes.add('butter-theme-base')
 
 const butter_components = new Set(Object.keys(packageJSON.devDependencies || {})
                                         .concat(Object.keys(packageJSON.dependencies || {}))
-                                        .filter((p) => (/(butter-component-.*)/.test(p))))
-butter_components.add('butter-base-components')
-butter_components.add('butter-component-builder')
+                                        .filter((p) => (/(butter-.*component.*)/.test(p))))
 
 const butter_streamers = new Set(Object.keys(packageJSON.devDependencies || {})
                                        .concat(Object.keys(packageJSON.dependencies || {}))
-                                       .filter((p) => (/(butter-streamer-.*)/.test(p))))
-butter_streamers.add('butter-stream-server')
-butter_streamers.add('butter-stream-selector')
+                                       .filter((p) => (/(butter-stream.*)/.test(p))))
 
 const butter_paths = [
   ...([...butter_components].map(
