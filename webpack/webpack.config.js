@@ -14,22 +14,35 @@ const butter_themes = new Set(Object.keys(packageJSON.devDependencies || {})
                                     .filter((p) => (/(butter-theme-.*)/.test(p))))
 butter_themes.add('butter-theme-base')
 
-const butter_components = new Set(Object.keys(packageJSON.devDependencies || {})
-                                        .concat(Object.keys(packageJSON.dependencies || {}))
-                                        .filter((p) => (/(butter-.*component.*)/.test(p))))
+const node_modules = fs.readdirSync(path.join(CWD, 'node_modules'))
 
-const butter_streamers = new Set(Object.keys(packageJSON.devDependencies || {})
-                                       .concat(Object.keys(packageJSON.dependencies || {}))
-                                       .filter((p) => (/(butter-stream.*)/.test(p))))
+const getModules = (main, regex) => {
+  try {
+    console.error('looking at', main)
+    return [main].concat(
+      fs.readdirSync(path.join(main, 'node_modules'))
+        .filter(p => (regex.test(p)))
+        .map(p => fs.realpathSync(path.join(main, 'node_modules', p))
+        ))
+  } catch (e) { return [main] }
+}
 
-const butter_paths = [
-  ...([...butter_components].map(
-    c => fs.realpathSync(`${CWD}/node_modules/${c}/`)
-  )),
-  ...([...butter_streamers].map(
-    c => fs.realpathSync(`${CWD}/node_modules/${c}/`)
-  ))
-]
+const getAllSubmodules = (regex) => node_modules.filter(
+  (p) => (regex.test(p))
+).reduce((acc, cur) => {
+  getModules(fs.realpathSync(`${CWD}/node_modules/${cur}/`), regex)
+    .map(p => acc.add(p))
+
+  return acc
+}, new Set())
+
+
+const butter_components = getAllSubmodules(/(butter-.*component.*)/)
+const butter_streamers = getAllSubmodules(/(butter-stream.*)/)
+
+const butter_paths = [...butter_components].concat([...butter_streamers])
+
+console.error('paths', butter_paths)
 
 const jsxConfig = {
   test: /\.jsx?$/,
@@ -48,7 +61,7 @@ const jsxConfig = {
         }
       }], require('babel-preset-react'), require('babel-preset-stage-0')],
       plugins: [],
-//      plugins: [require('babel-plugin-transform-runtime')],
+      //      plugins: [require('babel-plugin-transform-runtime')],
     }
   }
 }
