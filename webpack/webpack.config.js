@@ -136,6 +136,10 @@ const config = {
         use: [
           'url-loader?limit=100000'
         ]
+      },
+      {
+        test: /node_modules\/coffeescript\/bin\/coffee$/,
+        loaders: ['shebang-loader', 'babel-loader']
       }
     ],
   },
